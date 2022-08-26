@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CustomPreRelease</title>
+</head>
+
+<body>
+
+</body>
+<script type="module">
+    import { compare } from "../lib/index.esm.js";
+    // 数字代表权重, 越大权重越高（意味着版本最新）
+    // prv: pre release version
+    const prv = {
+        alpha: 20, 
+        beta: 10, 
+        rc: 5, 
+        hotfix: 100, // hotfix：可以自己增加的, 可以随意增加
+    };
+   const result = compare("1.0.2-hotfix", "1.0.2-alpha", { prv });
+   console.log(result.isGreater); // true
+
+   const result2 = compare("1.0.2-rc", "1.0.2-alpha", { prv });
+   console.log(result2.isGreater); // false
+</script>
+</html>

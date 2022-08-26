@@ -8,23 +8,7 @@ A semantic version comparison tool
 
 ## Example
 
-### Normal
-
-```typescript
-import * as version from "@renovator/version";
-
-version.compare("1.1.0", "1.0.0"); // { isGreater: true }
-version.compare("1.0.0", "1.1.0"); // { isGreater: false }
-version.compare("1.1.1", "1.1.0"); // { isGreater: true }
-```
-
-### Prerelease
-
-```typescript
-import { compare } from "@renovator/version";
-compare("1.1.0-alpha", "1.1.0"); // { isGreater: true }
-compare("1.1.0", "1.1.0-alpha"); // { isGreater: false }
-compare("1.1.1-alpha", "1.1.0-alpha"); // { isGreater: true }
-compare("1.1.1-alpha", "1.1.1"); // { isGreater: true }
-compare("1.1.1-beta", "1.1.1-alpha"); // { isGreater: true }
-```
+- [default example](./example/index.html)
+- [custom prerelease version](./example/custom-prerelease.html)
+- [custom prerelease validate](./example/custom-prerelease-validate.html)
+- [complex](./example/complex.html)

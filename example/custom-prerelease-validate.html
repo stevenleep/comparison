@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>custom prerelease validate</title>
+</head>
+
+<body>
+</body>
+<script type="module">
+    import { compare } from "../lib/index.esm.js";
+   const result = compare("1.0.1+", "1.0.1+beta", {
+        // 从前往后对比, 发现第一个不同时，会会返回不同的部分
+        // 通过这个函数你可以判断是什么语义更高
+        onPreRelease(first, second, firstInstance, secondInstance, pointer) {
+            console.log(first, second, firstInstance, secondInstance, pointer);
+
+            // 可以在任意的instance获取到权重的对应关系
+            // console.log(firstInstance.prv);
+
+            // 返回值 会作为 compare 最终的结果
+            // return {};
+
+            // 举一个例子
+            if(!first && second) {
+                return { isGreater: false };
+            }
+        }
+    });
+
+    console.log(result); //  { isGreater: false }
+</script>
+
+</html>
