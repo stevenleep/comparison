@@ -17,6 +17,7 @@ specifiers:
   rollup-plugin-typescript2: ^0.33.0
   ts-jest: ^28.0.8
   ts-node: ^10.9.1
+  tslib: ^2.4.0
   typedoc: ^0.23.11
   typescript: ^4.8.2
 
@@ -37,6 +38,7 @@ devDependencies:
   rollup-plugin-typescript2: registry.npmmirror.com/rollup-plugin-typescript2/0.33.0_rusrl3yqfuqle4tcyjzane2tmq
   ts-jest: registry.npmmirror.com/ts-jest/28.0.8_fv266hxr6a5znxqfklhyjyzoyq
   ts-node: registry.npmmirror.com/ts-node/10.9.1_hwinnrf7y5nyyzygpj45jmvjia
+  tslib: registry.npmmirror.com/tslib/2.4.0
   typedoc: registry.npmmirror.com/typedoc/0.23.11_typescript@4.8.2
   typescript: registry.npmmirror.com/typescript/4.8.2
 
