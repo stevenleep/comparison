@@ -1,6 +1,9 @@
 # @renovator/version
 
 A semantic version comparison tool
+<br />
+
+![Feature](./feature.png)
 
 ## API
 
