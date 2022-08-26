@@ -15,9 +15,12 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "build": "rollup -c --environment NODE_ENV=production",
-    "dev": "rollup -c --environment NODE_ENV=development",
-    "jest": "jest"
+    "build": "rollup -c",
+    "jest": "jest",
+    "jest:watch": "jest --watch",
+    "doc": "pnpm doc:pj && pnpm doc:test",
+    "doc:pj": "typedoc --options typedoc.json",
+    "doc:test": "typedoc --options typedoc.test.json"
   },
   "author": {
     "name": "Branlice",
@@ -46,6 +49,7 @@
     "rollup-plugin-typescript2": "^0.33.0",
     "ts-jest": "^28.0.8",
     "ts-node": "^10.9.1",
+    "typedoc": "^0.23.11",
     "typescript": "^4.8.2"
   }
 }
