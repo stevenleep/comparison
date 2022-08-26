@@ -25,7 +25,7 @@ const buildBaseConfig = {
       file: pkg.commonjs,
       format: "cjs",
       sourcemap: enableSourcemap,
-      exports: "named",
+      exports: "auto",
     },
   ],
 

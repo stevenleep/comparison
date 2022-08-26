@@ -15,6 +15,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "build:lib": "rollup -c",
     "build": "rollup -c",
     "jest": "jest",
     "jest:watch": "jest --watch",
