@@ -1,8 +1,5 @@
-import { BaseParserPlugin } from "./plugins/BaseParserPlugin";
-
 export interface ParserOptions {
   terminals?: string[];
-  plugins?: BaseParserPlugin[];
   prv?: {
     // prerelease version 默认在版本对比时候从上到下认为是逐渐增大 ，rc > beta > alpha
     alpha: number;

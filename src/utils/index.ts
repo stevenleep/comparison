@@ -1,3 +1,5 @@
+export * from "./diff";
+
 export function tryString2Number(str: string): number {
   const num = Number(str);
   if (isNaN(num)) {
@@ -12,4 +14,11 @@ export function available2Number(version: string): boolean {
     return false;
   }
   return true;
+}
+
+export function autoIteratorActuator<IteratorItem = string>(iterator: Iterator<IteratorItem>): void {
+  let result = iterator.next();
+  while (!result.done) {
+    result = iterator.next();
+  }
 }

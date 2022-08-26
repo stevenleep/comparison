@@ -1,11 +1,5 @@
-declare abstract class BaseParserPlugin {
-    abstract type: string;
-    abstract parse(file: Iterator<string>): any;
-}
-
 interface ParserOptions {
     terminals?: string[];
-    plugins?: BaseParserPlugin[];
     prv?: {
         alpha: number;
         beta: number;
@@ -43,19 +37,14 @@ declare class Parser {
     };
 }
 
-declare function compare(currentVersion: string, lastVersion: string, options?: ParserOptions): {
+interface CompareResult {
+    isGreater: boolean;
     weight: number;
-    isGreater: boolean;
-} | {
-    isGreater: boolean;
-    weight?: undefined;
-} | {
-    isGreater: {
-        weight: number;
-        isGreater: boolean;
-    } | undefined;
-    weight?: undefined;
-};
-declare function callIterator(iterator: Iterator<string>): void;
+}
 
-export { Parser, ParserOptions, callIterator, compare };
+interface EnhanceEventsParserOption extends ParserOptions {
+    onPreRelease?: <V>(current: string, last: string, currentParserInstance: Parser, lastParserInstance: Parser, pointer: number) => V;
+}
+declare function compare<Result = CompareResult>(currentVersion: string, lastVersion: string, options?: EnhanceEventsParserOption): Result;
+
+export { EnhanceEventsParserOption, Parser, ParserOptions, compare };
