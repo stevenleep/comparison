@@ -1,5 +1,5 @@
 {
-  "name": "@renovator/version",
+  "name": "branlice-version",
   "version": "1.0.0",
   "description": "A version of the verification tool",
   "keywords": [
@@ -13,6 +13,9 @@
   "module": "lib/index.esm.js",
   "commonjs": "lib/index.cjs.js",
   "types": "lib/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build:lib": "rollup -c",
