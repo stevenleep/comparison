@@ -32,10 +32,7 @@
     "url": "https://www.github.com/branlice"
   },
   "homepage": "https://www.github.com/branlice/renovator-version",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/branlice/version.git"
-  },
+  "repository": "https://github.com/branlice/version.git",
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@babel/preset-env": "^7.18.10",
