@@ -13,6 +13,9 @@
   "module": "lib/index.esm.js",
   "commonjs": "lib/index.cjs.js",
   "types": "lib/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build:lib": "rollup -c",
