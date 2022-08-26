@@ -1,9 +1,10 @@
 interface ParserOptions {
     terminals?: string[];
     prv?: {
-        alpha: number;
-        beta: number;
-        rc: number;
+        alpha?: number;
+        beta?: number;
+        rc?: number;
+    } & {
         [key: string]: number;
     };
 }
@@ -28,12 +29,13 @@ declare class Parser {
         splitWords: string[];
         originalVersion: string;
         iterator: Generator<string, void, unknown>;
-        prv: {
+        prv: ({
+            alpha?: number | undefined;
+            beta?: number | undefined;
+            rc?: number | undefined;
+        } & {
             [key: string]: number;
-            alpha: number;
-            beta: number;
-            rc: number;
-        } | undefined;
+        }) | undefined;
     };
 }
 

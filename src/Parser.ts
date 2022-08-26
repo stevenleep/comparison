@@ -2,11 +2,10 @@ export interface ParserOptions {
   terminals?: string[];
   prv?: {
     // prerelease version 默认在版本对比时候从上到下认为是逐渐增大 ，rc > beta > alpha
-    alpha: number;
-    beta: number;
-    rc: number;
-    [key: string]: number;
-  };
+    alpha?: number;
+    beta?: number;
+    rc?: number;
+  } & { [key: string]: number };
 }
 
 export class Parser {
