@@ -5,6 +5,12 @@ A semantic version comparison tool
 
 ![Feature](./feature.png)
 
+## Install
+
+```bash
+pnpm install @renovator/version
+```
+
 ## API
 
 - [x] [API Documents](https://branlice.github.io/version/modules.html)
@@ -17,6 +23,7 @@ A semantic version comparison tool
 - [complex](./example/complex.html)
 
 ## Principle
+
 ```typescript
 const version = "1.0.0";
 
