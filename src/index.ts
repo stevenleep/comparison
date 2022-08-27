@@ -5,13 +5,13 @@ import { autoIteratorActuator, horspool } from "./utils";
 
 export interface EnhanceEventsParserOption extends ParserOptions {
   // 自定义实现preRelease版本如何比较
-  onDifferent?: <V>(
+  onDifferent?: (
     current: string,
     last: string,
     currentParserInstance: Parser,
     lastParserInstance: Parser,
     pointer: number
-  ) => V;
+  ) => any;
 }
 export function compare<Result = CompareResult>(
   currentVersion: string,
