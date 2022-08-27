@@ -16,6 +16,13 @@ export function available2Number(version: string): boolean {
   return true;
 }
 
+export function isNegative(num: number): boolean {
+  return num < 0;
+}
+export function isPositive(num: number): boolean {
+  return num > 0;
+}
+
 export function autoIteratorActuator<IteratorItem = string>(iterator: Iterator<IteratorItem>): void {
   let result = iterator.next();
   while (!result.done) {

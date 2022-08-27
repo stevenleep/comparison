@@ -1,3 +1,10 @@
+import {
+  createCompareResult,
+  CompareResult,
+  CompareStatusEnum,
+} from "./preset/preRelease";
+export { CompareResult, CompareStatusEnum } from "./preset/preRelease";
+
 export interface ParserOptions {
   terminals?: string[];
   prv?: {
@@ -8,16 +15,15 @@ export interface ParserOptions {
   } & { [key: string]: number };
 }
 
+export const DefaultTerminals = [".", "-", "+"];
+export const DefaultPrvMappings = { alpha: 1, beta: 2, rc: 3 };
+
 export class Parser {
-  terminals: string[] = [".", "-", "+"];
+  terminals: string[] = DefaultTerminals;
   splitWords: string[] = [];
   part: string = "";
   versionString: string = "";
-  prv: ParserOptions["prv"] = {
-    alpha: 1,
-    beta: 2,
-    rc: 3,
-  };
+  prv: ParserOptions["prv"] = DefaultPrvMappings;
 
   constructor(public options?: ParserOptions) {
     this.prepare(options);
@@ -57,29 +63,25 @@ export class Parser {
     return this.prv?.[word] || 0;
   }
 
-  public getPrvWeight(currentWord: string, word: string) {
+  public getPrvWeight(
+    currentWord: string,
+    word: string
+  ): CompareResult | undefined {
     if (!this.isPrv(word) || !this.isPrv(currentWord)) {
-      throw new Error(
-        `${currentWord} or ${word} is not a pre release version desc`
-      );
+      return { isGreater: false, weight: 0, status: CompareStatusEnum.Error };
     }
 
     if (currentWord === word) {
-      return { weight: 0, isGreater: false };
+      return createCompareResult(false, 0);
     }
+
     const currentPrv = this.getPrv(currentWord);
     const prv = this.getPrv(word);
     if (currentPrv > prv) {
-      return {
-        weight: currentPrv - prv,
-        isGreater: true,
-      };
+      return createCompareResult(true, currentPrv - prv);
     }
     if (currentPrv < prv) {
-      return {
-        weight: prv - currentPrv,
-        isGreater: false,
-      };
+      return createCompareResult(false, currentPrv - prv);
     }
   }
 
