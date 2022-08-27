@@ -8,29 +8,26 @@ A semantic version comparison tool
 pnpm install @renovator/version
 ```
 
+## Feature
+
+- [Only one API](#API)
+- [Compare semantic versions](./example/index.html)
+- [Support pre-release tags](./example/custom-prerelease.html)
+- [Support custom pre-release tags](./example/custom-prerelease-validate.html)
+- [Support custom verification](./example/complex.html)
+- [Support CoreCode based definition extension](./example/completely-customized.html)
+
 ## API
 
-- [x] [API Documents](https://branlice.github.io/version/modules.html)
+- [API Documents](https://branlice.github.io/version/modules.html)
 
-## Example
+  ```typescript
+  import { compare } from "@renovator/version";
 
-- [default example](./example/index.html)
-- [custom prerelease version](./example/custom-prerelease.html)
-- [custom prerelease validate](./example/custom-prerelease-validate.html)
-- [complex](./example/complex.html)
+  const version1 = "1.0.0";
+  const version2 = "2.0.0";
 
-## Principle
-
-```typescript
-const version = "1.0.0";
-
-function *walk(version) {
- yeild '1';
- yeild '0';
- yeild '0';
-}
-
-const iterator = walk(version);
-iterator.next();
-
-```
+  const result = compare(version1, version2);
+  result.isGreater; // false
+  result.status; // negative
+  ```

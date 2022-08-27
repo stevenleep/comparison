@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completely customized</title>
+</head>
+<body></body>
+<script type="module">
+    import { Parser } from "../lib/index.esm.js";
+
+    /**
+     * Parser 只提供最基础的拆分功能
+     * 所有的上层版本如何对比全部由用户自己实现
+     * 
+     * 如果你只需要一些小变动, 你基本不需要使用 Parser, compare 提供的扩展已经足够
+    */
+
+    const parser = new Parser(
+        // { terminals: [".", "-", "+"] }
+        // terminals 可以在这里自定义，默认是标准的语义化版本分割符
+    ); 
+    const iterator = parser.walk("1.0.0"); // 返回一个按照 terminals string 拆分的迭代器
+
+    // 可以对内容进行迭代
+    iterator.next(); // { value: "1", done: false }
+    iterator.next(); // { value: "0", done: false }
+    iterator.next(); // { value: "0", done: true }
+
+    // 完成后可以也可以在 parser instance 获取到所有分割的结果
+    parser.splitWords // ["1", "0", "0"]
+    parser.versionString // "1.0.0"
+</script>
+</html>
