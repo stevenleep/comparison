@@ -5,7 +5,7 @@ import { autoIteratorActuator, horspool } from "./utils";
 
 export interface EnhanceEventsParserOption extends ParserOptions {
   // 自定义实现preRelease版本如何比较
-  onPreRelease?: <V>(
+  onDifferent?: <V>(
     current: string,
     last: string,
     currentParserInstance: Parser,
@@ -18,26 +18,25 @@ export function compare<Result = CompareResult>(
   lastVersion: string,
   options?: EnhanceEventsParserOption
 ): Result {
-  const { onPreRelease, ...parserOptions } = options || {};
+  const { onDifferent, ...parserOptions } = options || {};
   return compareImpl<Result>(
     createParserAndCallIterator(currentVersion, parserOptions),
     createParserAndCallIterator(lastVersion, parserOptions),
-    onPreRelease
+    onDifferent
   );
 }
 
 function compareImpl<Result = CompareResult>(
   current: Parser,
   last: Parser,
-  onPreRelease?: EnhanceEventsParserOption["onPreRelease"]
+  onDifferent?: EnhanceEventsParserOption["onDifferent"]
 ): Result {
   const { words, pointer } = horspool<string>(current.splitWords, last.splitWords);
 
   // 用于自定义先行版本如何校验
-  if(onPreRelease) {
-    return onPreRelease(words[0], words[1], current, last, pointer);
+  if(onDifferent) {
+    return onDifferent(words[0], words[1], current, last, pointer) as Result;
   }
-
   // 预设的先行版本校验方式
   return comparePreRelease(current, ...words) as unknown as Result;
 }
