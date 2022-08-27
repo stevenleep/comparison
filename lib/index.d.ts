@@ -55,7 +55,7 @@ declare class Parser {
 }
 
 interface EnhanceEventsParserOption extends ParserOptions {
-    onDifferent?: <V>(current: string, last: string, currentParserInstance: Parser, lastParserInstance: Parser, pointer: number) => V;
+    onDifferent?: (current: string, last: string, currentParserInstance: Parser, lastParserInstance: Parser, pointer: number) => any;
 }
 declare function compare<Result = CompareResult>(currentVersion: string, lastVersion: string, options?: EnhanceEventsParserOption): Result;
 
