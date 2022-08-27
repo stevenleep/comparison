@@ -1,9 +1,6 @@
-# @renovator/version
-
-A semantic version comparison tool
-<br />
-
 ![Feature](./feature.png)
+<br />
+A semantic version comparison tool
 
 ## Install
 
