@@ -31,3 +31,4 @@ pnpm install @renovator/version
   result.isGreater; // false
   result.status; // negative
   ```
+- the comparison of the version is only one of the application scenarios. Parser at the bottom only provides the ability to install specific characters split. You can expand a lot of things based on this (depending on your own interests and ideas)
