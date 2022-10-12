@@ -1,15 +1,21 @@
 ![Feature](./feature.png)
 <br />
-A semantic version comparison tool
+
+# A semantic version comparison tool
+> You want to know if a version is greater than another version? This tool is for you!
+
+#### Usage Scenarios:
+- **App Update**
+<br />
+you are developing an app and need to check if it needs to be updated!
+- **Dependency Update...**
 
 ## Install
-
 ```bash
 pnpm install @renovator/version
 ```
 
-## Feature
-
+## Features
 - [Only one API](#API)
 - [Compare semantic versions](./example/index.html)
 - [Support pre-release tags](./example/custom-prerelease.html)
@@ -18,7 +24,6 @@ pnpm install @renovator/version
 - [Support CoreCode based definition extension](./example/completely-customized.html)
 
 ## API
-
 - [API Documents](https://branlice.github.io/version/modules.html)
 
   ```typescript
