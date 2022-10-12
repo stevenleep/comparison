@@ -2,8 +2,7 @@
 <br />
 
 # A semantic version comparison tool
-> You want to know if a version is greater than another version? This tool is for you!
-
+You want to know if a version is greater than another version? This tool is for you!<br />
 Usage Scenarios:
 - *App Update*：you are developing an app and need to check if it needs to be updated!
 - *Dependency Update...*
