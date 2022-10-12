@@ -4,11 +4,9 @@
 # A semantic version comparison tool
 > You want to know if a version is greater than another version? This tool is for you!
 
-#### Usage Scenarios:
-- **App Update**
-<br />
-you are developing an app and need to check if it needs to be updated!
-- **Dependency Update...**
+Usage Scenarios:
+- *App Update*：you are developing an app and need to check if it needs to be updated!
+- *Dependency Update...*
 
 ## Install
 ```bash
