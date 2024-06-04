@@ -142,3 +142,7 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+# 防止密钥被上传到仓库
+.env.local
+.npmrc

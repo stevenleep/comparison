@@ -1,6 +1,6 @@
 {
-  "name": "@renovator/version",
-  "version": "1.1.1",
+  "name": "@stevenleep/comparison",
+  "version": "1.1.2",
   "description": "A version of the verification tool",
   "keywords": [
     "version"
@@ -14,22 +14,25 @@
   "commonjs": "lib/index.cjs.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "npx only-allow pnpm && cp .npmrc.bak .npmrc",
     "build:lib": "rollup -c",
     "build": "rollup -c",
     "jest": "jest",
     "jest:watch": "jest --watch",
     "doc": "pnpm doc:pj && pnpm doc:test",
     "doc:pj": "typedoc --options typedoc.json",
-    "doc:test": "typedoc --options typedoc.test.json"
+    "doc:test": "typedoc --options typedoc.test.json",
+    "version": "pnpm version --no-git-tag-version",
+    "set:token": "sh ./scripts/token.sh",
+    "publish:pkg": "pnpm build && pnpm doc && sh ./scripts/release.sh"
   },
   "author": {
-    "name": "Branlice",
+    "name": "stevenleep",
     "email": "dev@wclound.cn",
-    "url": "https://www.github.com/branlice"
+    "url": "https://www.github.com/stevenleep"
   },
-  "homepage": "https://www.github.com/branlice/renovator-version",
-  "repository": "https://github.com/branlice/version.git",
+  "homepage": "stevenleep.github.io/comparison",
+  "repository": "https://github.com/stevenleep/comparison",
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@babel/preset-env": "^7.18.10",
