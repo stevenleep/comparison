@@ -8,7 +8,6 @@ export { CompareResult, CompareStatusEnum } from "./preset/preRelease";
 export interface ParserOptions {
   terminals?: string[];
   prv?: {
-    // prerelease version 默认在版本对比时候从上到下认为是逐渐增大 ，rc > beta > alpha
     alpha?: number;
     beta?: number;
     rc?: number;

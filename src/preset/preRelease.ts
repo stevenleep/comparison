@@ -38,7 +38,6 @@ export function comparePreRelease(
   current: string,
   last: string
 ): CompareResult {
-  // 先行规则: 存在的先行版本的字符串大于不存在的先行版本的字符串
   if (current && !last) {
     return createCompareResult(true, 1);
   }
@@ -46,7 +45,6 @@ export function comparePreRelease(
     return createCompareResult(false, -1);
   }
 
-  // 规则：同一级的语义 数字大于先行版本的字符串
   const isCurrentAvailableNumber = available2Number(current);
   const isLastAvailableNumber = available2Number(last);
   if (isCurrentAvailableNumber && !isLastAvailableNumber) {
@@ -56,7 +54,6 @@ export function comparePreRelease(
     return createCompareResult(false, -1);
   }
 
-  // 规则二：都为数字，数字大小比较
   if (isCurrentAvailableNumber && isLastAvailableNumber) {
     const currentVersion = tryString2Number(current);
     const lastVersion = tryString2Number(last);
@@ -68,6 +65,5 @@ export function comparePreRelease(
     }
   }
 
-  // 规则三：都为先行版本的字符串，字符串对应的权重做比较
   return parser.getPrvWeight(current, last) as CompareResult;
 }
