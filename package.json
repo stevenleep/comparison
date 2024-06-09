@@ -14,7 +14,7 @@
   "commonjs": "lib/index.cjs.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "preinstall": "npx only-allow pnpm && cp .npmrc.bak .npmrc",
+    "pre:run": "npx only-allow pnpm && cp .npmrc.bak .npmrc",
     "build:lib": "rollup -c",
     "build": "rollup -c",
     "jest": "jest",
