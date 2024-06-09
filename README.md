@@ -12,7 +12,7 @@ Usage Scenarios:
 
 ## Install
 ```bash
-pnpm install @renovator/version
+pnpm install @stevenleep/comparison
 ```
 
 ## Features
@@ -27,7 +27,7 @@ pnpm install @renovator/version
 - [API Documents](https://branlice.github.io/version/modules.html)
 
   ```typescript
-  import { compare } from "@renovator/version";
+  import { compare } from "@stevenleep/comparison";
 
   const version1 = "1.0.0";
   const version2 = "2.0.0";
